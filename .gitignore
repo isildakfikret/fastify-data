@@ -1,0 +1,18 @@
+### NodeJS ###
+/dist
+/node_modules
+package-lock.json
+
+### Intellij Idea ###
+/.idea
+*.iml
+
+### Visual Studio Code ###
+/.vscode
+
+### Coverage ###
+/coverage
+
+### Other Files ###
+*.log
+*.png
