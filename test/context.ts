@@ -12,8 +12,6 @@ const employeeEntitySchema = {
   }
 };
 
-export const testDatabaseNames = ['db1', 'db2', 'db3', 'db4'];
-
 export const createDbConfig = (dbName?: string): ConnectionOptions => ({
   name: dbName || 'default',
   type: 'better-sqlite3',
@@ -25,9 +23,10 @@ export const createDbConfig = (dbName?: string): ConnectionOptions => ({
   ]
 });
 
-export const removeTestFiles = (): void => {
-  testDatabaseNames.forEach(name => {
-    const files = [`${name}.db`, `${name}.db-shm`, `${name}.db-wal`];
-    files.forEach(f => rmSync(join(__dirname, `../${f}`), { force: true }));
+export const removeTestFiles = (dbName: string): void => {
+  const files = [`${dbName}.db`, `${dbName}.db-shm`, `${dbName}.db-wal`];
+  files.forEach(f => {
+    const path = join(__dirname, `../${f}`);
+    return rmSync(path, { maxRetries: 3, retryDelay: 1000, force: true });
   });
 };

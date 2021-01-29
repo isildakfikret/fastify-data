@@ -2,11 +2,11 @@ import fastify from 'fastify';
 import httpClient from 'superagent';
 import dataPlugin from '../src';
 //@ts-ignore
-import { createDbConfig, removeTestFiles, testDatabaseNames } from './context';
+import { createDbConfig, removeTestFiles } from './context';
 
 describe('Integration Tests With Single Data Source', () => {
   const app = fastify();
-  const dsName = testDatabaseNames[1];
+  const dsName = 'single-demo';
   const dbConfig = createDbConfig(dsName);
   const employee = { name: 'Jane Doe', age: 123 };
 
@@ -41,7 +41,7 @@ describe('Integration Tests With Single Data Source', () => {
 
   afterAll(async () => {
     await app.close();
-    removeTestFiles();
+    removeTestFiles(dsName);
   });
 
   it('the entity should be saved', async () => {

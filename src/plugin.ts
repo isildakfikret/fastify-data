@@ -41,11 +41,11 @@ const plugin: FastifyPluginCallback<DataSourcesOptions> = (instance, options, do
     return instance.dataSources.get(dsName || 'default');
   });
 
-  instance.addHook('onClose', () => {
-    instance.dataSources.forEach(async dataSource => {
-      const db = await dataSource;
+  instance.addHook('onClose', async () => {
+    for (const ds of instance.dataSources) {
+      const db = await ds[1];
       await db.close();
-    });
+    }
   });
 
   done();

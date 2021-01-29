@@ -2,12 +2,12 @@ import fastify from 'fastify';
 import httpClient from 'superagent';
 import dataPlugin from '../src';
 //@ts-ignore
-import { createDbConfig, removeTestFiles, testDatabaseNames } from './context';
+import { createDbConfig, removeTestFiles } from './context';
 
 describe('Integration Tests With Single Data Source', () => {
   const app = fastify();
-  const dsName1 = testDatabaseNames[1];
-  const dsName2 = testDatabaseNames[2];
+  const dsName1 = 'multi1';
+  const dsName2 = 'multi2';
   const dbConfig1 = createDbConfig(dsName1);
   const dbConfig2 = createDbConfig(dsName2);
   const employee = { name: 'Jane Doe', age: 123 };
@@ -47,7 +47,8 @@ describe('Integration Tests With Single Data Source', () => {
 
   afterAll(async () => {
     await app.close();
-    removeTestFiles();
+    removeTestFiles(dsName1);
+    removeTestFiles(dsName2);
   });
 
   [dsName1, dsName2].forEach(ds => {
