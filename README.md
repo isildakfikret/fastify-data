@@ -11,7 +11,7 @@
 
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/isildakfikret/fastify-data/ci/master)
 ![GitHub branch checks state](https://img.shields.io/github/checks-status/isildakfikret/fastify-data/master)
-![Coveralls github branch](https://img.shields.io/coveralls/github/isildakfikret/fastify-data/master?label=coverage%40master&logo=coveralls)
+![Coveralls github branch](https://img.shields.io/coveralls/github/isildakfikret/fastify-data/master?logo=coveralls)
 ![GitHub issues](https://img.shields.io/github/issues-raw/isildakfikret/fastify-data)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/isildakfikret/fastify-data)
 
@@ -118,3 +118,7 @@ app.put('/update', async (req, res) => {
   return { status: 'access', data: entity };
 });
 ```
+
+## License
+
+Licensed under [MIT](./LICENSE).
