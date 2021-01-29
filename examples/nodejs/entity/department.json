@@ -1,0 +1,15 @@
+{
+  "tableName": "Departments",
+  "name": "Department",
+  "columns": {
+    "id": {
+      "type": "integer",
+      "primary": true,
+      "generated": true
+    },
+    "name": {
+      "type": "text",
+      "nullable": false
+    }
+  }
+}

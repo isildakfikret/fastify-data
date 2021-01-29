@@ -1,0 +1,28 @@
+# If you are using VS Code
+# @baseUrl=http://localhost:8000
+# @employeeId=1
+
+### Save employee
+POST {{baseUrl}}/employees HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Jane Done",
+  "age": 40
+}
+
+### Get employee
+GET {{baseUrl}}/employees?employeeId={{employeeId}} HTTP/1.1
+Accept: application/json
+
+### Save department
+POST {{baseUrl}}/departments HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Technics"
+}
+
+###
