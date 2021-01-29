@@ -1,5 +1,6 @@
 import { FastifyPluginCallback } from 'fastify';
 import { Connection, ConnectionOptions, createConnection, EntitySchema } from 'typeorm';
+import { EntitySchemaOptions } from 'typeorm/entity-schema/EntitySchemaOptions';
 
 declare module 'fastify' {
   interface FastifyInstance {
@@ -8,6 +9,12 @@ declare module 'fastify' {
 
   interface FastifyRequest {
     getDataSource: (dsName?: string) => Promise<Connection>;
+  }
+}
+
+declare module 'typeorm' {
+  interface BaseConnectionOptions {
+    entities?: EntitySchemaOptions<any>[];
   }
 }
 
