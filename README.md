@@ -17,7 +17,7 @@
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/isildakfikret/fastify-data)
 ![npm](https://img.shields.io/npm/dt/fastify-data?logo=npm)
-![npm](https://img.shields.io/npm/dt/fastify-data?logo=github)
+![GitHub all releases](https://img.shields.io/github/downloads/isildakfikret/fastify-data/total?logo=github)
 
 <hr />
 
