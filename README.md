@@ -11,13 +11,13 @@
 
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/isildakfikret/fastify-data/ci/master)
 ![GitHub branch checks state](https://img.shields.io/github/checks-status/isildakfikret/fastify-data/master)
-![Codecov](https://img.shields.io/codecov/c/github/isildakfikret/fastify-data)
+![Coveralls github branch](https://img.shields.io/coveralls/github/isildakfikret/fastify-data/master?label=coverage%40master&logo=coveralls)
 ![GitHub issues](https://img.shields.io/github/issues-raw/isildakfikret/fastify-data)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/isildakfikret/fastify-data)
 
-![GitHub top language](https://img.shields.io/github/languages/top/isildakfikret/fastify-data)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/isildakfikret/fastify-data)
 ![npm](https://img.shields.io/npm/dt/fastify-data?logo=npm)
+![npm](https://img.shields.io/npm/dt/fastify-data?logo=github)
 
 <hr />
 
@@ -83,7 +83,7 @@ app.register(fastifyData, { dataSources: [sqliteOptions, mysqlOptions] });
 **2. Step: Using in handler**
 
 ```javascript
-app.post('/register', function(req, res) {
+app.post('/register', function (req, res) {
   req
     .getDataSource('db1')
     .then(ds => ds.getRepository('Employee'))
