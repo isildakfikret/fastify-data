@@ -1,0 +1,42 @@
+name: publish
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  release:
+    name: publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node 14.x (for NPM)
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+          registry-url: https://registry.npmjs.org
+
+      - name: Install deps and build
+        uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
+        env:
+          NODE_ENV: production
+
+      - name: Publish to NPM packages
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Setup Node (for GitHub)
+        uses: actions/setup-node@v2
+        with:
+          registry-url: https://npm.pkg.github.com
+
+      - name: Publish to GitHub packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
