@@ -39,7 +39,7 @@ jobs:
         run: npm run lint
 
       - name: Test
-        run: npm run test:cover
+        run: npm test
 
       - name: Upload coverage
         uses: coverallsapp/github-action@master
