@@ -23,8 +23,6 @@ jobs:
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
-        env:
-          NODE_ENV: production
 
       - name: Publish to NPM packages
         run: npm publish --access public
