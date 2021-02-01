@@ -2,10 +2,11 @@
   "name": "fastify-data",
   "version": "1.0.0",
   "description": "Adds typeorm support",
-  "main": "./src/index.ts",
-  "types": "./src/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "prepublish": "npm run build",
     "prepare": "npm run build",
     "lint": "eslint ./src ./test --fix --ext ts --ignore-path .gitignore && prettier ./src ./test --write --ignore-path .gitignore",
     "test": "jest --runInBand --ci --colors --passWithNoTests",
