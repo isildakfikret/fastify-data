@@ -1,0 +1,28 @@
+### NodeJS ###
+/node_modules
+package-lock.json
+
+### Intellij Idea ###
+/.idea
+*.iml
+
+### Visual Studio Code ###
+/.vscode
+
+### Coverage ###
+/coverage
+
+### Other Files ###
+*.log
+*.png
+tsconfig.json
+jest.config.js
+coverage
+src
+test
+examples
+.github
+.npmrc
+.prettierrc
+.eslintrc
+.gitignore
